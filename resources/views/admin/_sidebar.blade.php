@@ -78,8 +78,8 @@
         </a>
         <div id="collapseUtilities" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
-                <a class="collapse-item" href="buttons.html">Add Product</a>
-                <a class="collapse-item" href="cards.html">List Products</a>
+                <a class="collapse-item" href="{{route('product_add')}}">Add Product</a>
+                <a class="collapse-item" href="{{route('product_list')}}">List Products</a>
             </div>
         </div>
     </li>

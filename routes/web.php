@@ -30,4 +30,9 @@ Route::prefix('adminn')->group(function () {
         Route::get('edit', [Admin\CategoryController::class, 'create'])->name('category_add');
     });
 
+    Route::prefix('product')->group( function() {
+        Route::get('index', [Admin\ProductController::class, 'index'])->name('product_list');
+        Route::get('edit', [Admin\ProductController::class, 'create'])->name('product_add');
+    });
+
 });
