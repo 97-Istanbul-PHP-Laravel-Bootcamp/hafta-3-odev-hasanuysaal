@@ -20,8 +20,14 @@ Route::get('/', function () {
 
 
 
-//url admin adı ile oluşturulduğundan oluşan sorundan dolayı sonda iki n ile url oluşturuldu
+//url admin adı ile oluşturulduğunda oluşan sorundan dolayı sonda iki n harfi ile url oluşturuldu
 Route::prefix('adminn')->group(function () {
-    Route::get('/', [Admin\HomeController::class, 'index']);
+
+    Route::get('/', [Admin\HomeController::class, 'index'])->name('admin');
+
+    Route::prefix('category')->group( function() {
+        Route::get('index', [Admin\CategoryController::class, 'index'])->name('category_list');
+        Route::get('edit', [Admin\CategoryController::class, 'create'])->name('category_add');
+    });
 
 });
