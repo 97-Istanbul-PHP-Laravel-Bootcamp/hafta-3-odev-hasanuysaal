@@ -19,7 +19,6 @@ Route::get('/', function () {
 });
 
 
-
 //url admin adı ile oluşturulduğunda oluşan sorundan dolayı sonda iki n harfi ile url oluşturuldu
 Route::prefix('adminn')->group(function () {
 
@@ -33,6 +32,11 @@ Route::prefix('adminn')->group(function () {
     Route::prefix('product')->group( function() {
         Route::get('index', [Admin\ProductController::class, 'index'])->name('product_list');
         Route::get('edit', [Admin\ProductController::class, 'create'])->name('product_add');
+    });
+
+    Route::prefix('user')->group( function() {
+        Route::get('index', [Admin\UserController::class, 'index'])->name('user_list');
+        Route::get('edit', [Admin\UserController::class, 'create'])->name('user_add');
     });
 
 });
