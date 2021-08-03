@@ -1,3 +1,5 @@
+@extends('admin.index')
+
 @section('MainPageTitle', 'Sipariş Listeleme')
 
 @section('PageTitle', 'Sipariş Listeleme')
@@ -8,32 +10,30 @@
         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
             <thead>
             <tr>
-                <th>Id</th>
-                <th>User</th>
-                <th>Name</th>
-                <th>Phone</th>
-                <th>Email</th>
-                <th>Address</th>
+                <th>User Id</th>
+                <th>Order Id</th>
                 <th>Product</th>
-                <th>Total</th>
-                <th>Date</th>
-                <th>Status</th>
+                <th>Sale Code</th>
+                <th>Price</th>
+                <th>Cid</th>
+                <th>Sale Date</th>
+                <th>Updated at</th>
+                <th>Created at</th>
                 <th>Show</th>
                 <th>Action</th>
             </tr>
             </thead>
             <tbody>
             <tr>
-                <td>id</td>
-                <td>user</td>
-                <td>name</td>
-                <td>phone</td>
-                <td>email</td>
-                <td>address</td>
-                <th>Product</th>
-                <td>total</td>
-                <td>date</td>
-                <td>status</td>
+                <td>userid</td>
+                <td>orid</td>
+                <td>product</td>
+                <td>salecode</td>
+                <td>price</td>
+                <td>cid</td>
+                <td>sale date</td>
+                <td>update</td>
+                <td>crdate</td>
                 <td><a href="{{route('cart_show',['id' => $id])}}" class="btn btn-info btn-circle"><i class="fas fa-fw fa-cog"></i></a></td>
                 <td><a href="" class="btn btn-info btn-circle"><i class="fas fa-fw fa-edit"></i></a></td>
             </tr>
@@ -43,4 +43,4 @@
     </div>
 @endsection
 
-@include('admin.index')
+

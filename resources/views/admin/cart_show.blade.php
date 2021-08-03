@@ -1,3 +1,5 @@
+@extends('admin.index')
+
 @section('MainPageTitle', 'Sipariş Görüntüleme')
 
 @section('PageTitle', 'Sipariş Görüntüleme')
@@ -41,4 +43,3 @@
     </div>
 @endsection
 
-@include('admin.index')

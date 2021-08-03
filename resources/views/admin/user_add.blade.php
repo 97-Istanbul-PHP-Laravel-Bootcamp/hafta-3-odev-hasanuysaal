@@ -1,3 +1,5 @@
+@extends('admin.index')
+
 @section('MainPageTitle', 'Kullanıcı Düzenleme')
 
 @section('PageTitle', 'Kullanıcı Düzenleme')
@@ -5,48 +7,93 @@
 
 @section('content')
 
-    <div class="table-responsive">
-        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-            <thead>
-            <tr>
-                <th>Id</th>
-                <th>Image</th>
-                <th>Name</th>
-                <th>Email</th>
-                <th>Phone</th>
-                <th>Address</th>
-                <th>Roles</th>
-                <th>Edit</th>
-                <th>Delete</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr>
-                <td>id</td>
-                <td>
-                    <img class="img-profile rounded-circle" src="https://source.unsplash.com/Mv9hjnEUHR4/60x60" height="40px" width="40px" style="border-radius: 10px;" alt="">
-                </td>
-                <td>name</td>
-                <td>email</td>
-                <td>phone</td>
-                <td>address</td>
-                <td>roles
-                    <a href="" onclick="return  !window.open(this.href,'','top=50 left=100 width=1100,height=700')">
-                        <i class="fas fa-fw fa-plus"></i>
-                    </a>
-                </td>
-                <td><a href="" onclick="return confirm('Edit ! Are you sure?')" class="btn btn-info btn-circle">
-                        <i class="fas fa-fw fa-cog"></i>
-                    </a></td>
-                <td><a href="" onclick="return confirm('Delete ! Are you sure?')" class="btn btn-danger btn-circle">
-                        <i class="fas fa-trash"></i>
-                    </a></td>
-            </tr>
+    <form class="user" action="" method="post">
+        @csrf
+        <div class="form-group col-lg-12">
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-lg-2">
+                        <label>Username</label>
+                    </div>
+                    <div class="col-lg-10">
+                        <input type="text" class="form-control" name="username">
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-lg-2">
+                        <label>Password</label>
+                    </div>
+                    <div class="col-lg-10">
+                        <input type="password" class="form-control" name="password">
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-lg-2">
+                        <label>E-Mail</label>
+                    </div>
+                    <div class="col-lg-10">
+                        <input type="mail" class="form-control" name="email">
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-lg-2">
+                        <label>Phone</label>
+                    </div>
+                    <div class="col-lg-10">
+                        <input type="number" class="form-control" name="mpno">
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-lg-2">
+                        <label>First Name</label>
+                    </div>
+                    <div class="col-lg-10">
+                        <input type="text" class="form-control" name="fname">
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-lg-2">
+                        <label>Last Name</label>
+                    </div>
+                    <div class="col-lg-10">
+                        <input type="text" class="form-control" name="lname">
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-lg-2">
+                        <label>Status</label>
+                    </div>
+                    <div class="col-lg-10">
+                        <select class="custom-select" name="status">
+                            <option selected="selected">a</option>
+                            <option>p</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                    <button type="submit" class="btn btn-primary btn-user btn-block col-lg-3 ">
+                        Add User
+                    </button>
+                </div>
+            </div>
+        </div>
 
-            </tbody>
-        </table>
-    </div>
+
+    </form>
 
 @endsection
 
-@include('admin.index')

@@ -1,3 +1,5 @@
+@extends('admin.index')
+
 @section('MainPageTitle', 'Kategori Listeleme')
 
 @section('PageTitle', 'Kategori Listeleme')
@@ -7,22 +9,24 @@
         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
             <thead>
             <tr>
-                <th>Id</th>
-                <th>Parent</th>
                 <th>Title</th>
+                <th>Description</th>
+                <th>Url</th>
                 <th>Status</th>
+                <th>Created at</th>
+                <th>Updated at</th>
                 <th>Edit</th>
                 <th>Delete</th>
             </tr>
             </thead>
             <tbody>
                 <tr>
-                    <td>id</td>
-                    <td>
-                        parent title
-                    </td>
                     <td>title</td>
+                    <td>desc</td>
+                    <td>url</td>
                     <td>status</td>
+                    <td>crupdate</td>
+                    <td>update</td>
                     <td><a href="" onclick="return confirm('Edit ! Are you sure?')" class="btn btn-info btn-circle">
                             <i class="fas fa-fw fa-cog"></i>
                         </a></td>
@@ -34,5 +38,3 @@
         </table>
     </div>
 @endsection
-
-@include('admin.index')

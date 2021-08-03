@@ -1,3 +1,5 @@
+@extends('admin.index')
+
 @section('MainPageTitle', 'Kategori Düzenleme')
 
 @section('PageTitle', 'Kategori Düzenleme')
@@ -10,36 +12,10 @@
             <div class="form-group">
                 <div class="row">
                     <div class="col-lg-2">
-                        <label>Parent</label>
-                    </div>
-                    <div class="col-lg-10">
-                        <select class="custom-select" name="parent_id">
-                            <option value="0" selected="selected">Main Category</option>
-                            <option value="0">Main Category</option>
-                            <option value="0">Main Category</option>
-                            <option value="0">Main Category</option>
-                            <option value="0">Main Category</option>
-                        </select>
-                    </div>
-                </div>
-            </div>
-            <div class="form-group">
-                <div class="row">
-                    <div class="col-lg-2">
                         <label>Title</label>
                     </div>
                     <div class="col-lg-10">
                         <input type="text" class="form-control" name="title">
-                    </div>
-                </div>
-            </div>
-            <div class="form-group">
-                <div class="row">
-                    <div class="col-lg-2">
-                        <label>Keywords</label>
-                    </div>
-                    <div class="col-lg-10">
-                        <input type="text" class="form-control" name="keywords">
                     </div>
                 </div>
             </div>
@@ -56,12 +32,22 @@
             <div class="form-group">
                 <div class="row">
                     <div class="col-lg-2">
+                        <label>Url</label>
+                    </div>
+                    <div class="col-lg-10">
+                        <input type="text" class="form-control" name="slug">
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-lg-2">
                         <label>Status</label>
                     </div>
                     <div class="col-lg-10">
                         <select class="custom-select" name="status">
-                            <option selected="selected">false</option>
-                            <option>true</option>
+                            <option selected="selected">a</option>
+                            <option>p</option>
                         </select>
                     </div>
                 </div>
@@ -80,4 +66,3 @@
 
 @endsection
 
-@include('admin.index')

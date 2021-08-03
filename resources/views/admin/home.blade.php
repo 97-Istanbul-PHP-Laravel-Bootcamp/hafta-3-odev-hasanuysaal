@@ -1,3 +1,5 @@
+@extends('admin.index')
+
 @section('MainPageTitle', 'Admin Ana Sayfa')
 
 @section('content')
@@ -338,7 +340,6 @@
 
 @endsection
 
-@include('admin.index')
 
 
 

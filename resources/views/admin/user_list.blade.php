@@ -1,3 +1,5 @@
+@extends('admin.index')
+
 @section('MainPageTitle', 'Kullanıcı Listeleme')
 
 @section('PageTitle', 'Kullanıcı Listeleme')
@@ -9,26 +11,34 @@
         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
             <thead>
             <tr>
-                <th>Id</th>
-                <th>Image</th>
-                <th>Name</th>
+                <th>Username</th>
                 <th>Email</th>
                 <th>Phone</th>
-                <th>Address</th>
-                <th>Roles</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Status</th>
+                <th>Created at</th>
+                <th>Updated at</th>
+                <th>Edit</th>
+                <th>Delete</th>
             </tr>
             </thead>
             <tbody>
                 <tr>
-                    <td>id</td>
-                    <td>
-                        <img class="img-profile rounded-circle" src="https://source.unsplash.com/Mv9hjnEUHR4/60x60" height="40px" width="40px" style="border-radius: 10px;" alt="">
-                    </td>
-                    <td>name</td>
+                    <td>username</td>
                     <td>email</td>
                     <td>phone</td>
-                    <td>address</td>
-                    <td>roles</td>
+                    <td>fname</td>
+                    <td>lname</td>
+                    <td>status</td>
+                    <td>Created at</td>
+                    <td>Updated at</td>
+                    <td><a href="" onclick="return confirm('Edit ! Are you sure?')" class="btn btn-info btn-circle">
+                            <i class="fas fa-fw fa-cog"></i>
+                        </a></td>
+                    <td><a href="" onclick="return confirm('Delete ! Are you sure?')" class="btn btn-danger btn-circle">
+                            <i class="fas fa-trash"></i>
+                        </a></td>
                 </tr>
             </tbody>
         </table>
@@ -36,4 +46,3 @@
 
 @endsection
 
-@include('admin.index')
