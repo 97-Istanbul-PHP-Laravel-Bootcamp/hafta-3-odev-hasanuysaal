@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\User;
 
 class UserController extends Controller
 {
@@ -14,7 +15,9 @@ class UserController extends Controller
      */
     public function index()
     {
-        return view('admin.user_list');
+        $datalist = User::all();
+
+        return view('admin.user_list', compact('datalist'));
     }
 
     /**
@@ -35,7 +38,10 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $input = request()->all();
+        User::create($input);
+
+        return redirect()->route('admin.user.index');
     }
 
     /**
@@ -57,7 +63,8 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        //
+        $data = User::findOrFail($id);
+        return view('admin.user_edit', compact('data'));
     }
 
     /**
@@ -69,7 +76,11 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $data = User::findOrFail($id);
+        $input = request()->all();
+
+        $data->update($input);
+        return redirect()->route('admin.user.index');
     }
 
     /**
@@ -80,6 +91,9 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $data = User::findOrFail($id);
+        $data->update(['status' => 't']);
+
+        return redirect()->route('admin.user.index');
     }
 }
