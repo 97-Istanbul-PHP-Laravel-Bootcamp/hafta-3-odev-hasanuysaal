@@ -1,13 +1,14 @@
 @extends('admin.index')
 
-@section('MainPageTitle', 'Kategori Ekleme')
+@section('MainPageTitle', 'Kategori Düzenleme')
 
-@section('PageTitle', 'Kategori Ekleme')
+@section('PageTitle', 'Kategori Düzenleme')
 
 @section('content')
 
-    <form class="user" action="{{route('admin.category.store')}}" method="POST">
+    <form class="user" action="{{route('admin.category.update', $data->id )}}" method="POST">
         @csrf
+        @method('PUT')
         <div class="form-group col-lg-12">
             <div class="form-group">
                 <div class="row">
@@ -15,7 +16,7 @@
                         <label>Title</label>
                     </div>
                     <div class="col-lg-10">
-                        <input type="text" class="form-control" name="title">
+                        <input type="text" class="form-control" name="title" value="{{ $data->title }}">
                     </div>
                 </div>
             </div>
@@ -25,7 +26,7 @@
                         <label>Description</label>
                     </div>
                     <div class="col-lg-10">
-                        <input type="text" class="form-control" name="description">
+                        <input type="text" class="form-control" name="description" value="{{ $data->description }}">
                     </div>
                 </div>
             </div>
@@ -35,7 +36,7 @@
                         <label>Url</label>
                     </div>
                     <div class="col-lg-10">
-                        <input type="text" class="form-control" name="slug">
+                        <input type="text" class="form-control" name="slug" value="{{ $data->slug }}">
                     </div>
                 </div>
             </div>
@@ -45,9 +46,9 @@
                         <label>Status</label>
                     </div>
                     <div class="col-lg-10">
-                        <select class="custom-select" name="status">
-                            <option selected="selected">a</option>
-                            <option>p</option>
+                        <select class="custom-select" name="status" >
+                            <option @if ($data->status == 'a') selected @endif >a</option>
+                            <option @if ($data->status == 'p') selected @endif >p</option>
                         </select>
                     </div>
                 </div>
@@ -55,7 +56,7 @@
             <div class="form-group">
                 <div class="d-grid gap-2 d-md-flex justify-content-md-end">
                     <button type="submit" class="btn btn-primary btn-user btn-block col-lg-3 ">
-                        Add Category
+                        Edit Category
                     </button>
                 </div>
             </div>

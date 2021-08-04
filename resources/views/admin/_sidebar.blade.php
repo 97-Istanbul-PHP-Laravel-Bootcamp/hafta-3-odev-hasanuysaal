@@ -28,10 +28,10 @@
 <div id="wrapper">
 
 <!-- Sidebar -->
-<ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+<ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion toggled" id="accordionSidebar">
 
     <!-- Sidebar - Brand -->
-    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{route('admin')}}">
+    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{route('admin.home')}}">
         <div class="sidebar-brand-icon rotate-n-15">
             <i class="fas fa-laugh-wink"></i>
         </div>
@@ -43,7 +43,7 @@
 
     <!-- Nav Item - Dashboard -->
     <li class="nav-item active">
-        <a class="nav-link" href="{{route('admin')}}">
+        <a class="nav-link" href="{{route('admin.home')}}">
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>Dashboard</span></a>
     </li>
@@ -60,8 +60,8 @@
         </a>
         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
-                <a class="collapse-item" href="{{route('category_add')}}">Add Category</a>
-                <a class="collapse-item" href="{{route('category_list')}}">List Categories</a>
+                <a class="collapse-item" href="{{route('admin.category.add')}}">Add Category</a>
+                <a class="collapse-item" href="{{route('admin.category.index')}}">List Categories</a>
             </div>
         </div>
     </li>
@@ -78,8 +78,8 @@
         </a>
         <div id="collapseUtilities" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
-                <a class="collapse-item" href="{{route('product_add')}}">Add Product</a>
-                <a class="collapse-item" href="{{route('product_list')}}">List Products</a>
+                <a class="collapse-item" href="{{route('admin.product.add')}}">Add Product</a>
+                <a class="collapse-item" href="{{route('admin.product.list')}}">List Products</a>
             </div>
         </div>
     </li>
@@ -96,8 +96,8 @@
         </a>
         <div id="collapsePages" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
-                <a class="collapse-item" href="{{route('user_add')}}">Add User</a>
-                <a class="collapse-item" href="{{route('user_list')}}">List Users</a>
+                <a class="collapse-item" href="{{route('admin.user.add')}}">Add User</a>
+                <a class="collapse-item" href="{{route('admin.user.list')}}">List Users</a>
             </div>
         </div>
     </li>
@@ -114,7 +114,7 @@
         </a>
         <div id="collapsePages1" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
-                <a class="collapse-item" href="{{route('cart_list')}}">List Carts</a>
+                <a class="collapse-item" href="{{route('admin.cart.list')}}">List Carts</a>
             </div>
         </div>
     </li>

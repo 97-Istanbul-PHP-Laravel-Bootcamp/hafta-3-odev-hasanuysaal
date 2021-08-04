@@ -34,7 +34,7 @@
                 <td>sale date</td>
                 <td>update</td>
                 <td>crdate</td>
-                <td><a href="{{route('cart_show',['id' => $id])}}" class="btn btn-info btn-circle"><i class="fas fa-fw fa-cog"></i></a></td>
+                <td><a href="{{route('admin.cart.show',['id' => $id])}}" class="btn btn-info btn-circle"><i class="fas fa-fw fa-cog"></i></a></td>
                 <td><a href="" class="btn btn-info btn-circle"><i class="fas fa-fw fa-edit"></i></a></td>
             </tr>
 

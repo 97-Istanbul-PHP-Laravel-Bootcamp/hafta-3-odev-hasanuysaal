@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Categories;
 use Illuminate\Http\Request;
 
 class CategoryController extends Controller
@@ -14,7 +15,11 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        return view('admin.category_list');
+        //daha önce silinen veriler için alttaki sorgu kullanılabilir
+        //$datalist = Categories::all();
+
+        $datalist = Categories::where('status', '<>', 't')->get();
+        return view('admin.category_list', compact('datalist'));
     }
 
     /**
@@ -27,6 +32,7 @@ class CategoryController extends Controller
         return view('admin.category_add');
     }
 
+
     /**
      * Store a newly created resource in storage.
      *
@@ -35,7 +41,9 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $input = request()->all();
+        Categories::create($input);
+        return redirect()->route('admin.category.index');
     }
 
     /**
@@ -57,7 +65,8 @@ class CategoryController extends Controller
      */
     public function edit($id)
     {
-        //
+        $data = Categories::findOrFail($id);
+        return view('admin.category_edit', compact('data'));
     }
 
     /**
@@ -69,7 +78,11 @@ class CategoryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $data = Categories::findOrFail($id);
+        $input = request()->all();
+        $data->update($input);
+        return redirect()->route('admin.category.index');
+
     }
 
     /**
@@ -80,6 +93,8 @@ class CategoryController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $data = Categories::findOrFail($id);
+        $data->update(['status' => 't']);
+        return redirect()->route('admin.category.index');
     }
 }
