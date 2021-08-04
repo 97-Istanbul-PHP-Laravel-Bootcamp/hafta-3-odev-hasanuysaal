@@ -10,8 +10,7 @@
         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
             <thead>
             <tr>
-                <th>Id</th>
-                <th>User</th>
+                <th>Username</th>
                 <th>Name</th>
                 <th>Phone</th>
                 <th>Email</th>
@@ -25,15 +24,14 @@
             </thead>
             <tbody>
             <tr>
-                <td>{{$id}}</td>
-                <td>user</td>
-                <td>name</td>
-                <td>phone</td>
-                <td>email</td>
-                <td>address</td>
-                <th>Product</th>
-                <td>total</td>
-                <td>date</td>
+                <td>{{ $user->username }}</td>
+                <td>{{ $user->fname }} {{ $user->lname }}</td>
+                <td>{{ $user->mpno }}</td>
+                <td>{{ $user->email }}</td>
+                <td>Adres</td>
+                <td>{{ $product->title }}</td>
+                <td>{{ $product->price }}</td>
+                <td>{{ $order->sale_date }}</td>
                 <td>status</td>
                 <td><a href="" class="btn btn-info btn-circle"><i class="fas fa-fw fa-edit"></i></a></td>
             </tr>

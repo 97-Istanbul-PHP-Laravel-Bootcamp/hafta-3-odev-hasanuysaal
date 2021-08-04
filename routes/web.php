@@ -37,9 +37,6 @@ Route::prefix('adminn')->name('admin.')->group(function () {
     Route::get('user/delete/{id}',[Admin\UserController::class, 'destroy'])->name('user.delete');
     Route::resource('user',Admin\UserController::class)->except('show');
 
-    Route::prefix('cart')->name('cart')->group( function() {
-        Route::get('index', [Admin\CartController::class, 'index'])->name('.list');
-        Route::get('view/{id}', [Admin\CartController::class, 'show'])->name('.show');
-    });
+    Route::resource('cart',Admin\CartController::class);
 
 });

@@ -114,7 +114,7 @@
         </a>
         <div id="collapsePages1" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
-                <a class="collapse-item" href="{{route('admin.cart.list')}}">List Carts</a>
+                <a class="collapse-item" href="{{route('admin.cart.index')}}">List Carts</a>
             </div>
         </div>
     </li>

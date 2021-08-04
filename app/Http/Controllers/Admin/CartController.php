@@ -3,6 +3,9 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Products;
+use App\Models\Sales;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class CartController extends Controller
@@ -14,9 +17,9 @@ class CartController extends Controller
      */
     public function index()
     {
-        //geçici olarak tanımlandı
-        $id = 5;
-        return view('admin.cart_list', compact('id'));
+        $datalist = Sales::all();
+
+        return view('admin.cart_list', compact('datalist'));
     }
 
     /**
@@ -48,7 +51,11 @@ class CartController extends Controller
      */
     public function show($id)
     {
-        return view('admin.cart_show', compact('id'));
+        $order = Sales::find($id);
+        $user = User::find($order->user_id);
+        $product = Products::find($order->product_id);
+
+        return view('admin.cart_show', compact('order','user','product'));
     }
 
     /**

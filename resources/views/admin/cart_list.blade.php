@@ -24,20 +24,21 @@
             </tr>
             </thead>
             <tbody>
+            @foreach($datalist as $rs)
             <tr>
-                <td>userid</td>
-                <td>orid</td>
-                <td>product</td>
-                <td>salecode</td>
-                <td>price</td>
-                <td>cid</td>
-                <td>sale date</td>
-                <td>update</td>
-                <td>crdate</td>
-                <td><a href="{{route('admin.cart.show',['id' => $id])}}" class="btn btn-info btn-circle"><i class="fas fa-fw fa-cog"></i></a></td>
+                <td>{{ $rs->user_id }}</td>
+                <td>{{ $rs->orid }}</td>
+                <td>{{ $rs->product_id }}</td>
+                <td>{{ $rs->code }}</td>
+                <td>{{ $rs->price }}</td>
+                <td>{{ $rs->cid }}</td>
+                <td>{{ $rs->sale_date }}</td>
+                <td>{{ $rs->update_at }}</td>
+                <td>{{ $rs->created_at }}</td>
+                <td><a href="{{route('admin.cart.show', $rs->id)}}" class="btn btn-info btn-circle"><i class="fas fa-fw fa-cog"></i></a></td>
                 <td><a href="" class="btn btn-info btn-circle"><i class="fas fa-fw fa-edit"></i></a></td>
             </tr>
-
+            @endforeach
             </tbody>
         </table>
     </div>
