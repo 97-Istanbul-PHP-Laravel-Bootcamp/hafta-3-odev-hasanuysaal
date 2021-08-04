@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Products;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
@@ -14,7 +15,11 @@ class ProductController extends Controller
      */
     public function index()
     {
-        return view('admin.product_list');
+        //daha önce silinen veriler için alttaki sorgu kullanılabilir
+        // $datalist = Products::all();
+
+        $datalist = Products::where('status', '<>', 't')->get();
+        return view('admin.product_list', compact('datalist'));
     }
 
     /**
@@ -35,7 +40,9 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $input = request()->all();
+        Products::create($input);
+        return redirect()->route('admin.product.index');
     }
 
     /**
@@ -57,7 +64,8 @@ class ProductController extends Controller
      */
     public function edit($id)
     {
-        //
+        $data = Products::findOrFail($id);
+        return view('admin.product_edit', compact('data'));
     }
 
     /**
@@ -69,7 +77,11 @@ class ProductController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $data = Products::findOrFail($id);
+        $input = request()->all();
+        $data->update($input);
+
+        return redirect()->route('admin.product.index');
     }
 
     /**
@@ -80,6 +92,8 @@ class ProductController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $data = Products::findOrFail($id);
+        $data->update(['status' => 't']);
+        return redirect()->route('admin.product.index');
     }
 }

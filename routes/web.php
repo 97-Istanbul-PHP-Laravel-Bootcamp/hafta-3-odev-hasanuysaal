@@ -26,15 +26,13 @@ Route::prefix('adminn')->name('admin.')->group(function () {
     Route::get('/', [Admin\HomeController::class, 'index'])->name('home');
 
     Route::get('category/{id}',[Admin\CategoryController::class , 'destroy'])->name('category.delete');
+    // 'category/create' url i kullanıldığında 404 not found hatası ile karşılaştığımdan farklı bir url adresi kullandım.
     // Route::get('category/add',[Admin\CategoryController::class , 'create'])->name('category.add');
     Route::get('categry/add',[Admin\CategoryController::class , 'create'])->name('category.add');
     Route::resource('category',Admin\CategoryController::class)->except(['show', 'create']);
 
-
-    Route::prefix('product')->name('product')->group( function() {
-        Route::get('index', [Admin\ProductController::class, 'index'])->name('.list');
-        Route::get('edit', [Admin\ProductController::class, 'create'])->name('.add');
-    });
+    Route::get('product/delete/{id}',[Admin\ProductController::class , 'destroy'])->name('product.delete');
+    Route::resource('product',Admin\ProductController::class)->except('show');
 
     Route::prefix('user')->name('user')->group( function() {
         Route::get('index', [Admin\UserController::class, 'index'])->name('.list');
